@@ -38,8 +38,8 @@
 </dependencies>
 <scm>
 <url>https://github.com/deepakranjanmoharana/sambit</url>
-		<connection>scm:git:git://github.com/deepakranjanmoharana/sambit.git</connection>
-		<developerConnection>scm:git:git@github.com:deepakranjanmoharana/sambit.git</developerConnection>
+		<connection>scm:git:git://https://github.com/sambit54321/test1.git</connection>
+		<developerConnection>scm:git:git@github.com:https://github.com/sambit54321/test1.git</developerConnection>
 </scm>
 <distributionManagement>
 <repository>
