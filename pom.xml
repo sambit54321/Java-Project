@@ -37,7 +37,7 @@
 </dependency>
 </dependencies>
 <scm>
-<url>https://github.com/deepakranjanmoharana/sambit</url>
+<url>https://github.com/sambit54321/test1.git</url>
 		<connection>scm:git:git://https://github.com/sambit54321/test1.git</connection>
 		<developerConnection>scm:git:git@github.com:https://github.com/sambit54321/test1.git</developerConnection>
 </scm>
