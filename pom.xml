@@ -6,7 +6,7 @@
 <version>1.0.1-SNAPSHOT</version>
 <name>SambitProject</name>
 <properties>
-<jdk.version>1.8</jdk.version>
+<jdk.version>1.7</jdk.version>
 </properties>
 <build>
 <plugins>
@@ -37,7 +37,7 @@
 </dependency>
 </dependencies>
 <scm>
-<url>https://github.com/sambit54321/test1.git</url>
+<url>https://github.com/sambit54321/test1</url>
 		<connection>scm:git:git://https://github.com/sambit54321/test1.git</connection>
 		<developerConnection>scm:git:git@github.com:https://github.com/sambit54321/test1.git</developerConnection>
 </scm>
