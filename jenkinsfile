@@ -31,8 +31,10 @@ stage("upload artifact in nexus") {
        sh "docker login -u dockerhandson -p"
        sh "docker push dockerhandson/spring-boot-mongo"
    }
-   stage("deploy image in cluster") {
-       sh "docker service "
+   stage("deploy image in K8S cluster") {
+       kubernetesDeploy(
+           configs: 'springBootMongo.yml',
+           kubeconfigId: KUBERNETES_CLUSTER_CONFIG',
    }
    stage("Email nofificateion") {
        emailext body: '', subject: '', to: 'sambit@tier1digital.co'
