@@ -9,6 +9,12 @@ stage ("sonarqube report") {
         else
         bat "${mvnHome}/bin/mvn clean package
     }
+stage ("Build artifact") {
+if (isunix()) {
+        sh "${mvnHome}/bin/mvn clean package"
+        else
+        bat "${mvnHome}/bin/mvn clean package"
+        }
 stage("upload artifact in nexus") {
    if (isunix()) {
         sh "${mvnHome}/bin/mvn clean deploy"
