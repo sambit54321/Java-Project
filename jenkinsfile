@@ -1,0 +1,36 @@
+node {
+def mvnHome=tool name:'maven3.6.1',type:'maven'
+    satge ("git checkout") {
+        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'e9c9a0b3-8fe9-479e-a50e-4073912163e3', url: 'https://github.com/sambit54321/Java-Project.git']]])
+    }
+stage ("sonarqube report") {
+    if (isunix()) {
+        sh "${mvnHome}/bin/mvn sonar:sonar"
+        else
+        bat "${mvnHome}/bin/mvn clean package
+    }
+stage("upload artifact in nexus") {
+   if (isunix()) {
+        sh "${mvnHome}/bin/mvn clean deploy"
+        else
+        bat "${mvnHome}/bin/mvn clean deploy
+   }
+   stage ("deploy in tomcat") {
+       sh "scp <war file path>   <web app folder path>"
+   }
+   stage ("build docker image") {
+       sh "docker build -t dockerhandson/spring-boot-mongo"
+   }
+   stage("docker push") {
+       sh "docker login -u dockerhandson -p"
+       sh "docker push dockerhandson/spring-boot-mongo"
+   }
+   stage("deploy image in cluster") {
+       sh "docker service "
+   }
+   stage("Email nofificateion") {
+       emailext body: '', subject: '', to: 'sambit@tier1digital.co'
+      
+   }
+   }
+   }
