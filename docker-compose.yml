@@ -1,0 +1,40 @@
+version: '3'
+services:
+  d8-multisite:
+    build: .
+    image: d8multisite:1.35
+    ports: 
+      - '90:80'
+    restart: "no"
+    stdin_open: true
+    tty: true
+    depends_on:
+     - mysql
+
+  mysql:
+    image: mysql:5.7
+    container_name: mysql-server
+    volumes:
+     - db_data:/var/lib/mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    #environment:
+    #- MYSQL_USER=root
+    #- MYSQL_PASSWORD=root
+    #- MYSQL_DATABASE=trackplus
+    #- MYSQL_MAX_ALLOWED_PACKET=1024M
+    #- MYSQL_INNODB_BUFFER_POOL_SIZE=1G
+    #- MYSQL_INNODB_LOG_FILE_SIZE=256M
+    #- MYSQL_INNODB_LOG_BUFFER_SIZE=256M
+    ports:
+    - "3307:3306"
+    #stdin_open: true
+    #tty: true
+  
+volumes:
+  db_data:
+
+networks:
+  d8multisitenetwork:
