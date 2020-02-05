@@ -3,11 +3,16 @@ def mvnHome=tool name:'maven3.6.1',type:'maven'
     satge ("git checkout") {
         checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'e9c9a0b3-8fe9-479e-a50e-4073912163e3', url: 'https://github.com/sambit54321/Java-Project.git']]])
     }
+stage ("junit test cases") {
+if (isunix()) {
+        sh "${mvnHome}/bin/mvn test"
+        else
+        bat "${mvnHome}/bin/mvn test
 stage ("sonarqube report") {
     if (isunix()) {
         sh "${mvnHome}/bin/mvn sonar:sonar"
         else
-        bat "${mvnHome}/bin/mvn clean package
+        bat "${mvnHome}/bin/mvn sonar:sonar"
     }
 stage ("Build artifact") {
 if (isunix()) {
