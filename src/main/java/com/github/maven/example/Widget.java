@@ -17,7 +17,7 @@ public class Widget {
 	/**
 	 * Is the widget currently enabled?
 	 * 
-	 * @return true if enabled, false otherwise
+	 * @return true if enabled, false otherwi=
 	 */
 	public boolean isEnabled() {
 		return enabled;
