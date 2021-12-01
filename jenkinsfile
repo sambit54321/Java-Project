@@ -6,13 +6,15 @@ satge ("git checkout") {
 stage ("junit test cases") {
 if (isunix()) {
         sh "${mvnHome}/bin/mvn test"
-//        else
+        }
+        }
+/*        else
 //        bat "${mvnHome}/bin/mvn test
 stage ("sonarqube report") {
     if (isunix()) {
         sh "${mvnHome}/bin/mvn sonar:sonar"
-        else
-        bat "${mvnHome}/bin/mvn sonar:sonar"
+//        else
+//        bat "${mvnHome}/bin/mvn sonar:sonar"
     }
 stage ("Build artifact") {
 if (isunix()) {
@@ -47,3 +49,4 @@ stage("Email nofificateion") {
    }
    }
    }
+   */
